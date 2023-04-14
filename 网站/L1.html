@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>ToDoList</h1>
+    <insert-to-do @addnewitem="addnewitem"></insert-to-do>
+    <h2>未完成列表</h2>
+    <todo-list :list="todoList" @deleteitemfromtodolist="deleteitemfromtodolist" @markdone="markdone"></todo-list>
+    <h2>已完成列表</h2>
+    <done-list :list="doneList" @deleteitemfromdonelist="deleteitemfromdonelist"></done-list>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    Vue.component('insert-to-do', {
+      template: `<div><input type="text" v-model="itemContent">
+  <button @click="addnewitem">添加</button></div>`,
+      data() {
+        return {
+          itemContent: ""
+        }
+      },
+      methods: {
+        addnewitem: function () {
+          if (this.itemContent === "") {
+            alert("ToDo不能为空")
+            return;
+          }
+          this.$emit('addnewitem', this.itemContent);
+          this.itemContent = "";
+        }
+      }
+    }),
+      Vue.component('todo-list', {
+        props: ["list"],
+        template: `  <table>
+  <tbody>
+  <tr v-for="(item,index) in list" :key="index">
+    <td width="10%"><input type="checkbox" @click="markdone" v-model="checked"></td>
+    <td width="90%">{{ item }}</td>
+    <td><input type="button" value="x" @click="deleteItem"></td>
+  </tr>
+  </tbody>
+</table>`,
+        data() {
+          return {
+            checked: ""
+          }
+        },
+        methods: {
+          markdone: function (index) {
+            this.$emit("markdone", index);
+            this.checked = null;
+          },
+          deleteItem: function (index) {
+            this.$emit("deleteitemfromtodolist", index);
+          },
+        }
+      }),
+      Vue.component('done-list', {
+        props: ["list"],
+        template: `<table>
+    <tbody>
+    <tr v-for="(item,index) in list" :key="index">
+      <td width="10%"><input type="checkbox" checked="checked" disabled="disabled"></td>
+      <td width="90%">{{ item }}</td>
+      <td><input type="button" value="x" @click="deleteItem"></td>
+    </tr>
+    </tbody>
+  </table>`,
+        methods: {
+          deleteItem: function (index) {
+            this.$emit("deleteitemfromdonelist", index);
+          },
+        }
+      }),
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            todoList: [],
+            doneList: []
+          }
+        },
+        methods: {
+          addnewitem: function (item) {
+            this.todoList.push(item);
+          },
+          deleteitemfromtodolist: function (index) {
+            this.todoList.splice(index, 1);
+          },
+          deleteitemfromdonelist: function (index) {
+            this.doneList.splice(index, 1);
+          },
+          markdone: function (index) {
+            this.doneList.push(this.todoList.splice(index, 1)[0])
+            // splice: 用于添加或删除数组中的元素
+            // 返回值: 如果删除一个元素，则返回一个元素的数组。 如果未删除任何元素，则返回空数组。
+          }
+        },
+      })
+  </script>
+</body>
+
+</html>

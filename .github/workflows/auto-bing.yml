@@ -25,8 +25,8 @@ jobs:
     # commit
     - name: commit file
       run: |
-        git config --local user.email 'cubetec@qq.com'
-        git config --local user.name 'cubeyu'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+        git config --local user.name 'github-actions[bot]'
         git diff --exit-code || git add . && git commit -am '[bot] update images.json' --allow-empty
     # push 
     - name: push changes

@@ -1,21 +1,21 @@
 {
-  "name": "dmego-home-page",
-  "version": "1.0.4",
-  "description": "Dmego Home Page",
+  "name": "cubeyu-home-page",
+  "version": "1.0.5",
+  "description": "CubeYu Home Page",
   "scripts": {
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmego/home.github.io.git"
+    "url": "git+https://github.com/cubeyu/cubeyu.github.io.git"
   },
   "keywords": [
-    "Dmego",
+    "Dcubeyu",
     "HomePage"
   ],
-  "author": "Dmego",
+  "author": "Dcubeyu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dmego/home.github.io/issues"
+    "url": "https://github.com/cubeyu/cubeyu.github.io/issues"
   },
-  "homepage": "https://github.com/dmego/home.github.io#readme"
+  "homepage": "https://github.com/cubeyu/cubeyu.github.io#readme"
 }

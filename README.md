@@ -1,6 +1,6 @@
-[![Version](https://img.shields.io/github/package-json/v/dmego/home.github.io)](https://www.npmjs.com/package/dmego-home-page)
+[![Version](https://img.shields.io/github/package-json/v/cubeyu/cubeyu.github.io)](https://www.npmjs.com/package/dmego-home-page)
 [![Website](https://img.shields.io/website-up-down-green-red/http/i.dmego.cn.svg)](http://i.dmego.cn/)
-[![License](https://img.shields.io/github/license/dmego/home.github.io.svg)](/LICENSE)
+[![License](https://img.shields.io/github/license/cubeyu/cubeyu.github.io.svg)](/LICENSE)
 [![Say Thanks](https://img.shields.io/badge/Say-Thanks!-1EAEDB.svg)](https://saythanks.io/to/dmego)
 
 ### 个人主页
@@ -12,7 +12,6 @@
 >页面部分加载效果借鉴于 [Mno](https://github.com/mcc108/mno) Ghost 主题
 
 >借鉴了[北岛向南的小屋](https://javef.github.io/)的头像样式
-
 
 - 使用了 [一言](http://hitokoto.cn/) 的 API 服务
 - 使用 `GitHub Action` 来获取 Bing 壁纸，使用 `JSONP` 获取 Bing 壁纸 URL 文件
@@ -26,3 +25,5 @@
   - 移除 Jquery 依赖，使用原生 JS
 - 2023-11-11
   - 将壁纸地址换成 cn.bing.com
+- 2025-02-25
+  - 添加新的社交图标样式
